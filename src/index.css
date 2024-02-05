@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 14px;
+  /* color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 14px;
+  font-family: sans-serif !important;
+}
+
+
+.shadow-custom{
+  transition: .3s;
+}
+
+.shadow-custom:hover{
+  transform: translate(-4px , -4px);
+  box-shadow: 5px 5px 0 black;
+}
+.shadow-static-custom{
+  transform: translate(-4px , -4px);
+  box-shadow: 5px 5px 0 black;
+}
+.shadow-custom-1{
+  transform: translate(-4px , -4px);
+  box-shadow: 5px 5px 0 black;
+}
+.shadow-custom-1:hover{
+  transform: translate(0 , 0px);
+  box-shadow: none;
+}
+
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+
+body {
+  width: 100%;
+  background: hsl(195deg 16.67% 95.29%);
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #eee;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  outline: none;
+}
+
+
+/* button:focus,
+button:focus-visible {
+  outline: 4px auto black;
+} */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    font-size: 10px;
+  }
+}
