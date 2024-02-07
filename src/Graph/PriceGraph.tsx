@@ -8,9 +8,7 @@ import {
   Legend,
   Label,
 } from "recharts";
-import { useContext, useEffect, useState } from "react";
-import { DataContext } from "../Context/DataProvider";
-import { getIndexOfFeature } from "../lib/SheetFormat";
+import {  useEffect, useState } from "react";
 
 export default function PriceGraph({
   category,

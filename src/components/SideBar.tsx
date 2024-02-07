@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom"
-import { LayoutDashboard, Archive, Bird } from "lucide-react"
+import { LayoutDashboard, Archive } from "lucide-react"
 
 const routes = [
   {

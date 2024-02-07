@@ -2,12 +2,10 @@ import { useState, useContext, useEffect } from "react";
 import {
   CertificationChart,
   CompatibilityChart,
-  MetricsTrackedChart,
   PriceGraph,
   SizeWeightChart,
 } from "../Graph/index";
 import { DataContext } from "../Context/DataProvider";
-import ExcelTable from "../Graph/ExcelTable";
 import FdaApproval from "../Graph/FdaApproval";
 
 function Dashboard({ isShow }: { isShow: boolean }) {

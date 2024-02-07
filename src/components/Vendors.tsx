@@ -1,36 +1,10 @@
 import ExcelTable from "../Graph/ExcelTable";
-import readExcelFile from "../lib/readSheet";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
+import { DataContext } from "../Context/DataProvider";
 
 function Vendors({ isShow }: { isShow: boolean }) {
-  const [data, setData] = useState<any>();
   const [category, setCategory] = useState<string>();
-  const [filteredVendors, setFilteredVendors] = useState<string[]>([]);
-
-  async function getExcelData() {
-    try {
-      const res = await readExcelFile();
-      setData(res);
-    } catch (err) {
-      console.log(err, "error in fetch data");
-    }
-  }
-
-  useEffect(() => {
-    getExcelData();
-  }, []);
-
-  useEffect(() => {
-    if (category && data) {
-      const vendors = data
-        .filter((item: string[]) => item[0] === category)
-        .map((item: string[]) => item[1]);
-
-      setFilteredVendors(vendors);
-    } else {
-      setFilteredVendors([]);
-    }
-  }, [category, data]);
+  const data = useContext(DataContext);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -50,13 +24,13 @@ function Vendors({ isShow }: { isShow: boolean }) {
           id=""
         >
           <option>--Select--</option>
-          {Array.from(
-            new Set(data?.slice(1).map((item: string[]) => item[0]))
-          ).map((category, index) => (//@ts-expect-error
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
+          {Array.from(new Set(data?.slice(1).map((item) => item[0]))).map(
+            (category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            )
+          )}
         </select>
       </div>
       {/* <ul className="bg-[white] p-4 rounded-md underline overflow-y-auto h-[400px]">

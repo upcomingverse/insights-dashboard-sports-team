@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -8,8 +8,6 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
-import { DataContext } from "../Context/DataProvider";
-import { getIndexOfFeature } from "../lib/SheetFormat";
 
 const MetricsTrackedChart = ({
   category,

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -9,8 +9,6 @@ import {
   Legend,
   Label,
 } from "recharts";
-import { DataContext } from "../Context/DataProvider";
-import { getIndexOfFeature } from "../lib/SheetFormat";
 
 const SizeWeightChart = ({
   category,

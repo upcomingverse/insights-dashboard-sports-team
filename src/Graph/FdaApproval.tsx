@@ -1,21 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import {
-  BarChart,
-  Bar,
-  Tooltip,
-  Legend,
-  CartesianGrid,
-  YAxis,
-  XAxis,
-  ReferenceLine,
-  Label,
-  ResponsiveContainer,
   PieChart,
   Pie,
   Sector,
 } from "recharts";
-import { DataContext } from "../Context/DataProvider";
-import { getIndexOfFeature } from "../lib/SheetFormat";
 
 const FdaApproval = ({
   category,
@@ -84,7 +72,6 @@ const FdaApproval = ({
       fill,
       payload,
       percent,
-      value,
       vendors_name,
     } = props;
     const sin = Math.sin(-RADIAN * midAngle);
