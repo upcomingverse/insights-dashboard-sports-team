@@ -22,7 +22,7 @@ function Dashboard({ isShow }: { isShow: boolean }) {
     <section
       className={`${
         isShow ? "w-[95%]" : "w-[80%]"
-      } p-4 h-[90vh] flex-1`}
+      } p-4 flex-1`}
     >
       <div className="flex gap-3 items-center mt-4">
         <div className="flex flex-col items-center justify-center gap-2  bg-white w-[30%] h-[100px] rounded-md border">

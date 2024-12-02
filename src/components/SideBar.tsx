@@ -44,7 +44,7 @@ function SideBar({ isShow }: { isShow: boolean }) {
     <aside
       className={`${
         isShow ? "w-[5%]" : "w-[20%]"
-      } bg-gray-200 border-r duration-75`}
+      } min-h-[88vh] bg-gray-200 border-r duration-75`}
     >
       <ul>
         {routes.map((item, key) => (
