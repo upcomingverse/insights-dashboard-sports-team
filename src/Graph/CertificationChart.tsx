@@ -1,10 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-
-  PieChart,
-  Pie,
-  Sector,
-} from "recharts";
+import { PieChart, Pie, Sector } from "recharts";
 
 const CertificationChart = ({
   category,
@@ -28,8 +23,8 @@ const CertificationChart = ({
     const vendorWithNO: { name: string }[] = [];
 
     ceCertification?.forEach((certification: string, index: number) => {
-      certification = certification.toLowerCase(); // Convert to lowercase for case-insensitive check
-      console.log(certification);
+      certification = certification?.toLowerCase(); // Convert to lowercase for case-insensitive check
+      // console.log(certification);
 
       if (certification === "yes") {
         yes += 1;
@@ -42,7 +37,7 @@ const CertificationChart = ({
       }
     });
 
-    console.log(vendorWithYes);
+    // console.log(vendorWithYes);
     const result = [
       {
         name: `Yes`,

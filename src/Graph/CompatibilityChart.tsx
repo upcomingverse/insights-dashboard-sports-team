@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -26,7 +26,7 @@ const CompatibilityChart = ({
     const vendors = filterData?.map((item: string[]) => item[1]);
     const iOSCompatibility = filterData?.map((item: string[]) => item[11]);
     const androidCompatibility = filterData?.map((item: string[]) => item[12]);
-    console.log(device);
+    // console.log(device);
     const data =
       device === "IOS"
         ? vendors?.slice(1).map((vendor: string[], index: number) => ({

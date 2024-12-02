@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 
 interface ExcelTableProps {
   data: string[][] | undefined;
@@ -15,10 +15,33 @@ const ExcelTable = ({ data, category }: ExcelTableProps) => {
 
   const transposedData = data;
   const headers = transposedData[0];
-  const filteredRows = transposedData
-    ?.slice(1)
-    ?.filter((item) => item[0] === category);
+  // const filteredRows = transposedData
+  //   ?.slice(1)
+  //   ?.filter((item) => item[0] === category);
+  // const totalItems = filteredRows.length;
+  // const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  // const visibleRows = filteredRows.slice(
+  //   (currentPage - 1) * itemsPerPage,
+  //   currentPage * itemsPerPage
+  // );
+  // console.log(transposedData);
+
+  type RowData = Record<string, string>;
+
+  const formattedData = transposedData.slice(1).map((row) => {
+    let rowData: RowData = {};
+    headers.forEach((header, index) => {
+      rowData[header] = row[index] || "";
+    });
+    return rowData;
+  });
+
+  const filteredRows = formattedData?.filter(
+    (item) => item["Product category"] === category
+  );
   const totalItems = filteredRows.length;
+
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   const visibleRows = filteredRows.slice(
@@ -49,7 +72,7 @@ const ExcelTable = ({ data, category }: ExcelTableProps) => {
             </tr>
           </thead>
           <tbody>
-            {visibleRows.map((row, rowIndex) => (
+            {/* {visibleRows.map((row, rowIndex) => (
               <tr
                 key={rowIndex}
                 className={rowIndex % 2 === 0 ? "bg-gray-50" : ""}
@@ -63,7 +86,25 @@ const ExcelTable = ({ data, category }: ExcelTableProps) => {
                   </td>
                 ))}
               </tr>
-            ))}
+            ))} */}
+            {visibleRows?.map((row, rowIndex) => {
+              const values = Object.values(row);
+              return (
+                <tr
+                  key={rowIndex}
+                  className={rowIndex % 2 === 0 ? "bg-gray-50" : ""}
+                >
+                  {values.map((item, index) => (
+                    <td
+                      key={index}
+                      className="px-6 py-4 whitespace-nowrap border"
+                    >
+                      {item || ""}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

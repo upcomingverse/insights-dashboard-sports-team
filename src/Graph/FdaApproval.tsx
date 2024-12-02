@@ -1,9 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {
-  PieChart,
-  Pie,
-  Sector,
-} from "recharts";
+import { PieChart, Pie, Sector } from "recharts";
 
 const FdaApproval = ({
   category,
@@ -27,8 +23,8 @@ const FdaApproval = ({
     const vendorWithNO: { name: string }[] = [];
 
     ceCertification?.forEach((certification: string, index: number) => {
-      certification = certification.toLowerCase(); // Convert to lowercase for case-insensitive check
-      console.log(certification);
+      certification = certification?.toLowerCase(); // Convert to lowercase for case-insensitive check
+      // console.log(certification);
 
       if (certification === "yes") {
         yes += 1;
@@ -41,7 +37,7 @@ const FdaApproval = ({
       }
     });
 
-    console.log(vendorWithYes);
+    // console.log(vendorWithYes);
     const result = [
       {
         name: `Yes`,
@@ -149,25 +145,26 @@ const FdaApproval = ({
 
   return (
     <>
-     
       {category && (
-                  <div className="bg-white">
-        <h6 className="font-bold text-lg text-center p-2">{"FDA Approved"}</h6>
+        <div className="bg-white">
+          <h6 className="font-bold text-lg text-center p-2">
+            {"FDA Approved"}
+          </h6>
 
-        <PieChart width={400} height={400}>
-          <Pie
-            activeIndex={activeIndex}
-            activeShape={renderActiveShape}
-            data={certificationData}
-            cx={200}
-            cy={200}
-            innerRadius={60}
-            outerRadius={80}
-            fill="#8884d8"
-            dataKey="value"
-            onMouseEnter={onPieEnter}
-          />
-        </PieChart>
+          <PieChart width={400} height={400}>
+            <Pie
+              activeIndex={activeIndex}
+              activeShape={renderActiveShape}
+              data={certificationData}
+              cx={200}
+              cy={200}
+              innerRadius={60}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+              onMouseEnter={onPieEnter}
+            />
+          </PieChart>
         </div>
       )}
     </>

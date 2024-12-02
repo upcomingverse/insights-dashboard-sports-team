@@ -22,10 +22,10 @@ function Dashboard({ isShow }: { isShow: boolean }) {
     <section
       className={`${
         isShow ? "w-[95%]" : "w-[80%]"
-      } p-4 h-[90vh] overflow-y-scroll overflow-x-hidden `}
+      } p-4 h-[90vh] flex-1`}
     >
-      <div className="flex gap-3 items-center ">
-        <div className="flex flex-col items-center justify-center gap-2  bg-white w-[30%] h-[100px] rounded-md  border">
+      <div className="flex gap-3 items-center mt-4">
+        <div className="flex flex-col items-center justify-center gap-2  bg-white w-[30%] h-[100px] rounded-md border">
           <span className="font-bold text-lg">Vendors</span>
           <span className="text-3xl font-bold text-blue-500">
             {data && data?.slice(1).map((item) => item[1]).length}
@@ -45,7 +45,7 @@ function Dashboard({ isShow }: { isShow: boolean }) {
 
       <br />
 
-      <div className="flex flex-col bg-white w-fit rounded-md p-4">
+      <div className="flex flex-col bg-white w-fit rounded-md p-4 border">
         <span className="text-blue-500 font-semibold">Product Category: </span>
         <select
           onChange={(e) => setCategory(e.target.value)}
@@ -72,13 +72,14 @@ function Dashboard({ isShow }: { isShow: boolean }) {
           <PriceGraph category={category} filterData={filterData} />
           <SizeWeightChart category={category} filterData={filterData} />
           <CompatibilityChart category={category} filterData={filterData} />
+
           {/* <div className="bg-white">
             <MetricsTrackedChart category={category} filterData={filterData} />
           </div> */}
+
           <CertificationChart category={category} filterData={filterData} />
           <FdaApproval category={category} filterData={filterData} />
         </div>
-
       </div>
     </section>
   );

@@ -7,12 +7,16 @@ function Vendors({ isShow }: { isShow: boolean }) {
   const data = useContext(DataContext);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex-1 text-center mt-10">
+        <p className="text-lg font-semibold">Loading...</p>
+      </div>
+    );
   }
 
   return (
     <section
-      className={`${isShow ? "w-[8%]" : "w-[80%]"}  p-4 overflow-y-scroll`}
+      className={`${isShow ? "w-[8%]" : "w-[80%]"}  p-4 overflow-y-auto flex-1`}
     >
       <div className="font-bold text-3xl p-4 mb-4">Vendors</div>
       <div className="flex flex-col bg-white w-fit rounded-md p-4 mb-2">
@@ -45,7 +49,7 @@ function Vendors({ isShow }: { isShow: boolean }) {
       </ul> */}
 
       {category && (
-        <section className=" overflow-scroll mt-8 text-[hsl(0,0%,20%)] bg-[white] p-4 rounded-sm">
+        <section className="mt-8 text-[hsl(0,0%,20%)] bg-[white] p-4 rounded-sm">
           <ExcelTable data={data} category={category} />
         </section>
       )}

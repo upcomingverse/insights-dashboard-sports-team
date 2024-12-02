@@ -8,7 +8,7 @@ import {
   Legend,
   Label,
 } from "recharts";
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function PriceGraph({
   category,
@@ -35,7 +35,7 @@ export default function PriceGraph({
             : price,
       }));
 
-    console.log(data);
+    // console.log(data);
     setFinalData(data);
   }, [filterData]);
 

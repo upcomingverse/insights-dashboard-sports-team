@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   LineChart,
   Line,
@@ -29,7 +29,7 @@ const SizeWeightChart = ({
     const data = vendors?.slice(1).map((vendor: string[], index: number) => ({
       name: vendor,
       size: typeof (sizes[index] === "string")
-        ? parseInt(sizes[index + 1].replace("mm", ""))
+        ? parseInt(sizes[index + 1]?.replace("mm", ""))
         : parseInt(sizes[index + 1]),
       weight: parseFloat(weights[index + 1]) || 0,
     }));
